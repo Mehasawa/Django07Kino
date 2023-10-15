@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2> {{ actor.fname }} {{ actor.lname }}</h2>
+    <h2>{{ actor.country }}</h2>
+    <h2>{{ actor.born }}</h2>
+    <h2>Фильмы:</h2>
+    {% for kino in actor.kino_set.all %}
+        <p>{{ kino.title }} // {{ kino.genre }}</p>
+    {% endfor %}
+
+{% endblock %}
