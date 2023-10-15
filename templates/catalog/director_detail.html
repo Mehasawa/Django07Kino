@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2> {{ director.fname }} {{ director.lname }}</h2>
+
+    <h2>Фильмы:</h2>
+    {% for kino in director.kino_set.all %}
+        <p>{{ kino.title }} // {{ kino.genre }}</p>
+    {% endfor %}
+
+{% endblock %}
