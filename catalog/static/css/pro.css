@@ -1,0 +1,12 @@
+.screen{
+    width: 500px;
+    height: 250px;
+    background-color: black;
+    margin: auto;
+}
+body{
+    text-align: center;
+}
+.pdp a{
+    display: block;
+}

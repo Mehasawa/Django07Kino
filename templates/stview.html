@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+    <title>Подписки</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stat.css' %}">
+{% endblock head %}
+{%  block content %}
+    {% for one in k1 %}
+        <h3 class="statmain">{{ one.name }}</h3>
+        <div class="cont">
+        {% for kino in one.kino_set.all %}
+        <div>
+            <img src="{% static kino.img %}" alt="">
+            <h3>{{ kino.title }}</h3>
+            <a href="{% url 'prosmotr' kino.status.name %}"><button>Смотреть</button></a>
+        </div>
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+{% endblock %}

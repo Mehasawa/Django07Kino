@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+    <title>Кинотеатр</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pro.css' %}">
+{% endblock head %}
+{%  block content %}
+    <h3>Фильм</h3>
+    <div class="screen">
+
+    </div>
+    <div class="pdp">
+    {% if k3 %}
+        <h4>вы смотрите фильм</h4>
+        <h4>{{ prava }}</h4>
+        <h4>{{ kino }}</h4>
+    {% else %}
+        <h4>нет подписки</h4>
+        {% if not user.username %}
+            <a href="{% url 'login' %}">купить базовую</a>
+            <a href="{% url 'login' %}">купить супер</a>
+        {% else %}
+            <a href="{% url 'buy' type=2 %}">купить базовую</a>
+            <a href="{% url 'buy' type=3 %}">купить супер</a>
+        {% endif %}
+    {% endif %}
+    </div>
+{% endblock %}
